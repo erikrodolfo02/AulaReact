@@ -25,7 +25,7 @@ app.post('/api/tasks', (req, res) => {
 })
 
 app.get('api/tasks/:id', (req, res) => {
-    const { id } = req.params
+    const { id } = Number(req.params)
 
     const taks = tasks.find(t => t.id === id)
 
@@ -59,7 +59,7 @@ app.post('/api/tasks', (req, res) => {
 })
 
 app.put('/api/tasks/:id', (req, res) => {
-    const { id } = req.params
+    const { id } = Number(req.params)
     const { title, completed } = req.body
 
     const task = tasks.find(t => t.id === id)
